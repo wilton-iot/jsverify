@@ -67,5 +67,30 @@
     "rc4": "~0.1.5",
     "trampa": "^1.0.0",
     "typify-parser": "^1.1.0"
+  },
+  "wilton": {
+    "excludes": [
+      "dist",
+      "examples",
+      "fail",
+      "helpers",
+      "lib/jsverify.d.ts",
+      "spec",
+      "test",
+      "test-ts",
+      "CHANGELOG.md",
+      "CONTRIBUTING.md",
+      "FAQ.md",
+      "Makefile",
+      "jsverify-300.png",
+      "jsverify.sublime-project",
+      "karma.conf.js",
+      "karma.jasmine.conf.js",
+      "npm-freeze-manifest.json",
+      "related-work.md",
+      "runAllTests.js",
+      "tsconfig.json",
+      "tslint.json"
+    ]
   }
 }

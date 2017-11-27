@@ -1,9 +1,12 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 /* jshint node:true */
 /* global describe, it */
 "use strict";
 
-var jsc = require("../lib/jsverify.js");
+var jsc = require("jsverify/lib/jsverify.js");
 var assert = require("assert");
+var describe = require("tape-compat").describe;
+var it = require("tape-compat").it;
 
 describe("sampler", function () {
   it("generates arbitraries of non-zero size by default", function () {
@@ -49,3 +52,5 @@ describe("sampler", function () {
     }));
   });
 });
+
+return module.exports;});

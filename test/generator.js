@@ -1,10 +1,14 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 /* jshint node:true */
 /* global describe, it */
 "use strict";
 
 var assert = require("assert");
-var jsc = require("../lib/jsverify.js");
-var _ = require("underscore");
+var jsc = require("jsverify/lib/jsverify.js");
+var _ = require("lodash");
+var describe = require("tape-compat").describe;
+var it = require("tape-compat").it;
+_.contains = _.includes;
 
 describe("jsc.generator", function () {
   describe("array", function () {
@@ -136,3 +140,5 @@ describe("jsc.generator", function () {
     return result;
   });
 });
+
+return module.exports;});

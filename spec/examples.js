@@ -1,3 +1,4 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 /* global jsc, describe, it, expect */
 (function () {
   "use strict";
@@ -166,3 +167,5 @@
     });
   });
 }());
+
+return module.exports;});

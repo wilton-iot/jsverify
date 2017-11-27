@@ -1,12 +1,17 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 /* jshint node:true */
 /* global describe, it */
 "use strict";
 
-var jsc = require("../lib/jsverify.js");
+var jsc = require("jsverify/lib/jsverify.js");
 var _ = require("lodash");
-var expect = require("chai").expect;
+var expect = require("tape-compat").expect;
+var describe = require("tape-compat").describe;
+var it = require("tape-compat").it;
+_.contains = _.includes;
 
 describe("jsc.utils", function () {
+/* // slow in duktape
   describe("merge", function () {
     it("≡ _.extend({}, ...", function () {
       jsc.assert(jsc.forall("dict", "dict", function (x, y) {
@@ -16,6 +21,7 @@ describe("jsc.utils", function () {
       }));
     });
   });
+*/
 
   describe("ilog2", function () {
     it("returns integers, examples", function () {
@@ -32,9 +38,11 @@ describe("jsc.utils", function () {
       return jsc.utils.isApproxEqual(a, b) === (a === b);
     });
 
+/* // slow in duktape
     jsc.property("isApproxEqual(a: json, b: json) ≡ isEqual(a, b)", "json", "json", function (a, b) {
       return jsc.utils.isApproxEqual(a, b) === jsc.utils.isEqual(a, b);
     });
+*/
 
     jsc.property("is reflexive", "json", function (a) {
       return jsc.utils.isApproxEqual(a, a);
@@ -87,3 +95,5 @@ describe("jsc.utils", function () {
     });
   });
 });
+
+return module.exports;});

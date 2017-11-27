@@ -1,9 +1,12 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 /* jshint node:true */
 /* global describe */
 "use strict";
 
-var jsc = require("../lib/jsverify.js");
-var _ = require("underscore");
+var jsc = require("jsverify/lib/jsverify.js");
+var _ = require("lodash");
+var describe = require("tape-compat").describe;
+_.contains = _.includes;
 
 describe("nullable example", function () {
   function toNullable(e) {
@@ -24,3 +27,5 @@ describe("nullable example", function () {
     return n === null || typeof n === "number";
   });
 });
+
+return module.exports;});

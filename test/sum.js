@@ -1,8 +1,11 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 /* jshint node:true */
 /* global describe */
 "use strict";
 
-var jsc = require("../lib/jsverify.js");
+var jsc = require("jsverify/lib/jsverify.js");
+var describe = require("tape-compat").describe;
+var it = require("tape-compat").it;
 
 describe("sum", function () {
   jsc.property("generates either like", jsc.sum([jsc.bool, jsc.nat]), function (s) {
@@ -42,3 +45,5 @@ describe("sum", function () {
     });
   });
 });
+
+return module.exports;});

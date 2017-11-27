@@ -1,8 +1,11 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 /* jshint node:true */
 /* global describe */
 "use strict";
 
-var jsc = require("../lib/jsverify.js");
+var jsc = require("jsverify/lib/jsverify.js");
+var describe = require("tape-compat").describe;
+var it = require("tape-compat").it;
 
 describe("throws", function () {
   jsc.property("example 1", "bool", function (b) {
@@ -29,3 +32,5 @@ describe("throws", function () {
     return jsc.throws(block, Error, msg) === b;
   });
 });
+
+return module.exports;});

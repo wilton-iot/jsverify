@@ -1,17 +1,18 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.jsc = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 "use strict";
 
-var arbitrary = require("./arbitrary.js");
-var bless = require("./bless.js");
-var dict = require("./dict.js");
-var generator = require("./generator.js");
-var json = require("./json.js");
-var primitive = require("./primitive.js");
-var record = require("./record.js");
-var recordWithEnv = require("./recordWithEnv.js");
-var shrink = require("./shrink.js");
-var small = require("./small.js");
-var string = require("./string.js");
+var arbitrary = require("jsverify/arbitrary.js");
+var bless = require("jsverify/bless.js");
+var dict = require("jsverify/dict.js");
+var generator = require("jsverify/generator.js");
+var json = require("jsverify/json.js");
+var primitive = require("jsverify/primitive.js");
+var record = require("jsverify/record.js");
+var recordWithEnv = require("jsverify/recordWithEnv.js");
+var shrink = require("jsverify/shrink.js");
+var small = require("jsverify/small.js");
+var string = require("jsverify/string.js");
 
 var api = {
   arbitrary: {
@@ -60,21 +61,21 @@ for (k in generator) {
 }
 module.exports = api;
 
-},{"./arbitrary.js":2,"./bless.js":6,"./dict.js":7,"./generator.js":13,"./json.js":14,"./primitive.js":17,"./record.js":19,"./recordWithEnv.js":20,"./shrink.js":22,"./small.js":23,"./string.js":24}],2:[function(require,module,exports){
+},{"jsverify/arbitrary.js":2,"jsverify/bless.js":6,"jsverify/dict.js":7,"jsverify/generator.js":13,"jsverify/json.js":14,"jsverify/primitive.js":17,"jsverify/record.js":19,"jsverify/recordWithEnv.js":20,"jsverify/shrink.js":22,"jsverify/small.js":23,"jsverify/string.js":24}],2:[function(require,module,exports){
 /* @flow weak */
 "use strict";
 
-var arbitraryAssert = require("./arbitraryAssert.js");
-var arbitraryBless = require("./arbitraryBless.js");
-var array = require("./array.js");
+var arbitraryAssert = require("jsverify/arbitraryAssert.js");
+var arbitraryBless = require("jsverify/arbitraryBless.js");
+var array = require("jsverify/array.js");
 var assert = require("assert");
-var dict = require("./dict.js");
-var generator = require("./generator.js");
-var json = require("./json.js");
-var pair = require("./pair.js");
-var show = require("./show.js");
-var shrink = require("./shrink.js");
-var utils = require("./utils.js");
+var dict = require("jsverify/dict.js");
+var generator = require("jsverify/generator.js");
+var json = require("jsverify/json.js");
+var pair = require("jsverify/pair.js");
+var show = require("jsverify/show.js");
+var shrink = require("jsverify/shrink.js");
+var utils = require("jsverify/utils.js");
 
 /**
   ### Arbitrary combinators
@@ -309,7 +310,7 @@ module.exports = {
   letrec: letrec,
 };
 
-},{"./arbitraryAssert.js":3,"./arbitraryBless.js":4,"./array.js":5,"./dict.js":7,"./generator.js":13,"./json.js":14,"./pair.js":16,"./show.js":21,"./shrink.js":22,"./utils.js":28,"assert":29}],3:[function(require,module,exports){
+},{"jsverify/arbitraryAssert.js":3,"jsverify/arbitraryBless.js":4,"jsverify/array.js":5,"jsverify/dict.js":7,"jsverify/generator.js":13,"jsverify/json.js":14,"jsverify/pair.js":16,"jsverify/show.js":21,"jsverify/shrink.js":22,"jsverify/utils.js":28,"assert":29}],3:[function(require,module,exports){
 "use strict";
 
 var assert = require("assert");
@@ -329,7 +330,7 @@ module.exports = arbitraryAssert;
 },{"assert":29}],4:[function(require,module,exports){
 "use strict";
 
-var show = require("./show.js");
+var show = require("jsverify/show.js");
 
 /**
   ### Arbitrary data
@@ -385,15 +386,15 @@ function arbitraryBless(arb) {
 
 module.exports = arbitraryBless;
 
-},{"./show.js":21}],5:[function(require,module,exports){
+},{"jsverify/show.js":21}],5:[function(require,module,exports){
 "use strict";
 
-var arbitraryAssert = require("./arbitraryAssert.js");
-var arbitraryBless = require("./arbitraryBless.js");
-var generator = require("./generator.js");
-var show = require("./show.js");
-var shrink = require("./shrink.js");
-var utils = require("./utils.js");
+var arbitraryAssert = require("jsverify/arbitraryAssert.js");
+var arbitraryBless = require("jsverify/arbitraryBless.js");
+var generator = require("jsverify/generator.js");
+var show = require("jsverify/show.js");
+var shrink = require("jsverify/shrink.js");
+var utils = require("jsverify/utils.js");
 
 function makeArray(flavour) {
   return function arrayImpl(arb) {
@@ -417,15 +418,15 @@ module.exports = {
   nearray: nearray,
 };
 
-},{"./arbitraryAssert.js":3,"./arbitraryBless.js":4,"./generator.js":13,"./show.js":21,"./shrink.js":22,"./utils.js":28}],6:[function(require,module,exports){
+},{"jsverify/arbitraryAssert.js":3,"jsverify/arbitraryBless.js":4,"jsverify/generator.js":13,"jsverify/show.js":21,"jsverify/shrink.js":22,"jsverify/utils.js":28}],6:[function(require,module,exports){
 "use strict";
 
 var assert = require("assert");
 
-var arbitraryBless = require("./arbitraryBless.js");
-var generator = require("./generator.js");
-var show = require("./show.js");
-var shrink = require("./shrink.js");
+var arbitraryBless = require("jsverify/arbitraryBless.js");
+var generator = require("jsverify/generator.js");
+var show = require("jsverify/show.js");
+var shrink = require("jsverify/shrink.js");
 
 /**
   - `bless(arb: {...}): arbitrary a`
@@ -469,16 +470,16 @@ function bless(arb) {
 
 module.exports = bless;
 
-},{"./arbitraryBless.js":4,"./generator.js":13,"./show.js":21,"./shrink.js":22,"assert":29}],7:[function(require,module,exports){
+},{"jsverify/arbitraryBless.js":4,"jsverify/generator.js":13,"jsverify/show.js":21,"jsverify/shrink.js":22,"assert":29}],7:[function(require,module,exports){
 /* @flow weak */
 "use strict";
 
-var arbitraryAssert = require("./arbitraryAssert.js");
-var array = require("./array.js");
-var generator = require("./generator.js");
-var pair = require("./pair.js");
-var string = require("./string.js");
-var utils = require("./utils.js");
+var arbitraryAssert = require("jsverify/arbitraryAssert.js");
+var array = require("jsverify/array.js");
+var generator = require("jsverify/generator.js");
+var pair = require("jsverify/pair.js");
+var string = require("jsverify/string.js");
+var utils = require("jsverify/utils.js");
 
 function makeMapShow(elShow) {
   return function (m) {
@@ -514,7 +515,7 @@ module.exports = {
   generator: generateDict,
 };
 
-},{"./arbitraryAssert.js":3,"./array.js":5,"./generator.js":13,"./pair.js":16,"./string.js":24,"./utils.js":28}],8:[function(require,module,exports){
+},{"jsverify/arbitraryAssert.js":3,"jsverify/array.js":5,"jsverify/generator.js":13,"jsverify/pair.js":16,"jsverify/string.js":24,"jsverify/utils.js":28}],8:[function(require,module,exports){
 "use strict";
 
 var assert = require("assert");
@@ -626,12 +627,12 @@ module.exports = {
 /* @flow weak */
 "use strict";
 
-var arbitrary = require("./arbitrary.js");
-var fn = require("./fn.js");
-var primitive = require("./primitive.js");
-var small = require("./small.js");
-var string = require("./string.js");
-var utils = require("./utils.js");
+var arbitrary = require("jsverify/arbitrary.js");
+var fn = require("jsverify/fn.js");
+var primitive = require("jsverify/primitive.js");
+var small = require("jsverify/small.js");
+var string = require("jsverify/string.js");
+var utils = require("jsverify/utils.js");
 
 var environment = utils.merge(primitive, string, {
   pair: arbitrary.pair,
@@ -649,11 +650,11 @@ var environment = utils.merge(primitive, string, {
 
 module.exports = environment;
 
-},{"./arbitrary.js":2,"./fn.js":11,"./primitive.js":17,"./small.js":23,"./string.js":24,"./utils.js":28}],10:[function(require,module,exports){
+},{"jsverify/arbitrary.js":2,"jsverify/fn.js":11,"jsverify/primitive.js":17,"jsverify/small.js":23,"jsverify/string.js":24,"jsverify/utils.js":28}],10:[function(require,module,exports){
 /* @flow weak */
 "use strict";
 
-var utils = require("./utils.js");
+var utils = require("jsverify/utils.js");
 
 /*
   #### FMap (eq : a -> a -> bool) : FMap a
@@ -702,16 +703,16 @@ FMap.prototype.get = function FMapGet(key) { // eslint-disable-line consistent-r
 
 module.exports = FMap;
 
-},{"./utils.js":28}],11:[function(require,module,exports){
+},{"jsverify/utils.js":28}],11:[function(require,module,exports){
 /* @flow weak */
 "use strict";
 
-var arbitraryBless = require("./arbitraryBless.js");
-var generator = require("./generator.js");
-var FMap = require("./finitemap.js");
-var json = require("./json.js");
-var shrink = require("./shrink.js");
-var utils = require("./utils.js");
+var arbitraryBless = require("jsverify/arbitraryBless.js");
+var generator = require("jsverify/generator.js");
+var FMap = require("jsverify/finitemap.js");
+var json = require("jsverify/json.js");
+var shrink = require("jsverify/shrink.js");
+var utils = require("jsverify/utils.js");
 
 /**
   ### Arbitrary functions
@@ -754,7 +755,7 @@ module.exports = {
   fun: fn,
 };
 
-},{"./arbitraryBless.js":4,"./finitemap.js":10,"./generator.js":13,"./json.js":14,"./shrink.js":22,"./utils.js":28}],12:[function(require,module,exports){
+},{"jsverify/arbitraryBless.js":4,"jsverify/finitemap.js":10,"jsverify/generator.js":13,"jsverify/json.js":14,"jsverify/shrink.js":22,"jsverify/utils.js":28}],12:[function(require,module,exports){
 /* @flow weak */
 "use strict";
 
@@ -853,10 +854,10 @@ module.exports = {
 "use strict";
 
 var assert = require("assert");
-var either = require("./either.js");
-var random = require("./random.js");
-var sum = require("./sum.js");
-var utils = require("./utils.js");
+var either = require("jsverify/either.js");
+var random = require("jsverify/random.js");
+var sum = require("jsverify/sum.js");
+var utils = require("jsverify/utils.js");
 
 /**
   ### Generator functions
@@ -1112,19 +1113,19 @@ module.exports = {
   recursive: generatorRecursive,
 };
 
-},{"./either.js":8,"./random.js":18,"./sum.js":26,"./utils.js":28,"assert":29}],14:[function(require,module,exports){
+},{"jsverify/either.js":8,"jsverify/random.js":18,"jsverify/sum.js":26,"jsverify/utils.js":28,"assert":29}],14:[function(require,module,exports){
 "use strict";
 
 var assert = require("assert");
 
-var arbitraryBless = require("./arbitraryBless.js");
-var dict = require("./dict.js");
-var generator = require("./generator.js");
-var primitive = require("./primitive.js");
-var show = require("./show.js");
-var shrink = require("./shrink.js");
-var string = require("./string.js");
-var utils = require("./utils.js");
+var arbitraryBless = require("jsverify/arbitraryBless.js");
+var dict = require("jsverify/dict.js");
+var generator = require("jsverify/generator.js");
+var primitive = require("jsverify/primitive.js");
+var show = require("jsverify/show.js");
+var shrink = require("jsverify/shrink.js");
+var string = require("jsverify/string.js");
+var utils = require("jsverify/utils.js");
 
 var nullArb = primitive.constant(null);
 
@@ -1190,7 +1191,7 @@ module.exports = {
   json: json,
 };
 
-},{"./arbitraryBless.js":4,"./dict.js":7,"./generator.js":13,"./primitive.js":17,"./show.js":21,"./shrink.js":22,"./string.js":24,"./utils.js":28,"assert":29}],15:[function(require,module,exports){
+},{"jsverify/arbitraryBless.js":4,"jsverify/dict.js":7,"jsverify/generator.js":13,"jsverify/primitive.js":17,"jsverify/show.js":21,"jsverify/shrink.js":22,"jsverify/string.js":24,"jsverify/utils.js":28,"assert":29}],15:[function(require,module,exports){
 /* @flow weak */
 /**
   # JSVerify
@@ -1312,19 +1313,19 @@ module.exports = {
 var assert = require("assert");
 var lazyseq = require("lazy-seq");
 
-var api = require("./api.js");
-var either = require("./either.js");
-var environment = require("./environment.js");
-var FMap = require("./finitemap.js");
-var fn = require("./fn.js");
-var functor = require("./functor.js");
-var random = require("./random.js");
-var show = require("./show.js");
-var shrink = require("./shrink.js");
-var suchthat = require("./suchthat.js");
-var sum = require("./sum.js");
-var typify = require("./typify.js");
-var utils = require("./utils.js");
+var api = require("jsverify/api.js");
+var either = require("jsverify/either.js");
+var environment = require("jsverify/environment.js");
+var FMap = require("jsverify/finitemap.js");
+var fn = require("jsverify/fn.js");
+var functor = require("jsverify/functor.js");
+var random = require("jsverify/random.js");
+var show = require("jsverify/show.js");
+var shrink = require("jsverify/shrink.js");
+var suchthat = require("jsverify/suchthat.js");
+var sum = require("jsverify/sum.js");
+var typify = require("jsverify/typify.js");
+var utils = require("jsverify/utils.js");
 
 /**
   ### Properties
@@ -1612,7 +1613,7 @@ function compile(str, env) {
       Create a sampler for a given arbitrary with an optional size. Handy when used in
       a REPL:
       ```
-      > jsc = require('jsverify') // or require('./lib/jsverify') w/in the project
+      > jsc = require('jsverify') // or require('jsverify/lib/jsverify') w/in the project
       ...
       > jsonSampler = jsc.sampler(jsc.json, 4)
       [Function]
@@ -1784,15 +1785,15 @@ module.exports = jsc;
 /// plain ../related-work.md
 /// plain ../LICENSE
 
-},{"./api.js":1,"./either.js":8,"./environment.js":9,"./finitemap.js":10,"./fn.js":11,"./functor.js":12,"./random.js":18,"./show.js":21,"./shrink.js":22,"./suchthat.js":25,"./sum.js":26,"./typify.js":27,"./utils.js":28,"assert":29,"lazy-seq":30}],16:[function(require,module,exports){
+},{"jsverify/api.js":1,"jsverify/either.js":8,"jsverify/environment.js":9,"jsverify/finitemap.js":10,"jsverify/fn.js":11,"jsverify/functor.js":12,"jsverify/random.js":18,"jsverify/show.js":21,"jsverify/shrink.js":22,"jsverify/suchthat.js":25,"jsverify/sum.js":26,"jsverify/typify.js":27,"jsverify/utils.js":28,"assert":29,"lazy-seq":30}],16:[function(require,module,exports){
 "use strict";
 
-var arbitraryAssert = require("./arbitraryAssert.js");
-var arbitraryBless = require("./arbitraryBless.js");
-var generator = require("./generator.js");
-var show = require("./show.js");
-var shrink = require("./shrink.js");
-var utils = require("./utils.js");
+var arbitraryAssert = require("jsverify/arbitraryAssert.js");
+var arbitraryBless = require("jsverify/arbitraryBless.js");
+var generator = require("jsverify/generator.js");
+var show = require("jsverify/show.js");
+var shrink = require("jsverify/shrink.js");
+var utils = require("jsverify/utils.js");
 
 function pair(a, b) {
   a = utils.force(a);
@@ -1812,17 +1813,17 @@ module.exports = {
   pair: pair,
 };
 
-},{"./arbitraryAssert.js":3,"./arbitraryBless.js":4,"./generator.js":13,"./show.js":21,"./shrink.js":22,"./utils.js":28}],17:[function(require,module,exports){
+},{"jsverify/arbitraryAssert.js":3,"jsverify/arbitraryBless.js":4,"jsverify/generator.js":13,"jsverify/show.js":21,"jsverify/shrink.js":22,"jsverify/utils.js":28}],17:[function(require,module,exports){
 /* @flow weak */
 "use strict";
 
-var arbitraryBless = require("./arbitraryBless");
+var arbitraryBless = require("jsverify/arbitraryBless");
 var assert = require("assert");
-var generator = require("./generator.js");
-var random = require("./random.js");
-var show = require("./show.js");
-var shrink = require("./shrink.js");
-var utils = require("./utils.js");
+var generator = require("jsverify/generator.js");
+var random = require("jsverify/random.js");
+var show = require("jsverify/show.js");
+var shrink = require("jsverify/shrink.js");
+var utils = require("jsverify/utils.js");
 
 /**
   ### Primitive arbitraries
@@ -2104,7 +2105,7 @@ module.exports = {
   datetime: datetime,
 };
 
-},{"./arbitraryBless":4,"./generator.js":13,"./random.js":18,"./show.js":21,"./shrink.js":22,"./utils.js":28,"assert":29}],18:[function(require,module,exports){
+},{"jsverify/arbitraryBless":4,"jsverify/generator.js":13,"jsverify/random.js":18,"jsverify/show.js":21,"jsverify/shrink.js":22,"jsverify/utils.js":28,"assert":29}],18:[function(require,module,exports){
 /* @flow weak */
 "use strict";
 
@@ -2147,10 +2148,10 @@ module.exports = randomInteger;
 },{"rc4":31}],19:[function(require,module,exports){
 "use strict";
 
-var arbitraryBless = require("./arbitraryBless.js");
-var generator = require("./generator.js");
-var utils = require("./utils.js");
-var shrink = require("./shrink.js");
+var arbitraryBless = require("jsverify/arbitraryBless.js");
+var generator = require("jsverify/generator.js");
+var utils = require("jsverify/utils.js");
+var shrink = require("jsverify/shrink.js");
 
 /**
   - `generator.record(gen: { key: generator a... }): generator { key: a... }`
@@ -2220,13 +2221,13 @@ module.exports = {
   shrink: shrinkRecord,
 };
 
-},{"./arbitraryBless.js":4,"./generator.js":13,"./shrink.js":22,"./utils.js":28}],20:[function(require,module,exports){
+},{"jsverify/arbitraryBless.js":4,"jsverify/generator.js":13,"jsverify/shrink.js":22,"jsverify/utils.js":28}],20:[function(require,module,exports){
 "use strict";
 
-var environment = require("./environment.js");
-var record = require("./record.js");
-var typify = require("./typify.js");
-var utils = require("./utils.js");
+var environment = require("jsverify/environment.js");
+var record = require("jsverify/record.js");
+var typify = require("jsverify/typify.js");
+var utils = require("jsverify/utils.js");
 
 /**
   ### Arbitrary records
@@ -2249,7 +2250,7 @@ function recordWithEnv(spec, userenv) {
 
 module.exports = recordWithEnv;
 
-},{"./environment.js":9,"./record.js":19,"./typify.js":27,"./utils.js":28}],21:[function(require,module,exports){
+},{"jsverify/environment.js":9,"jsverify/record.js":19,"jsverify/typify.js":27,"jsverify/utils.js":28}],21:[function(require,module,exports){
 
 /* @flow weak */
 "use strict";
@@ -2258,7 +2259,7 @@ module.exports = recordWithEnv;
   ### Show functions
 */
 
-var utils = require("./utils.js");
+var utils = require("jsverify/utils.js");
 
 /**
   - `show.def(x : a): string`
@@ -2347,15 +2348,15 @@ module.exports = {
   array: showArray,
 };
 
-},{"./utils.js":28}],22:[function(require,module,exports){
+},{"jsverify/utils.js":28}],22:[function(require,module,exports){
 /* @flow weak */
 "use strict";
 
 var assert = require("assert");
-var either = require("./either.js");
+var either = require("jsverify/either.js");
 var lazyseq = require("lazy-seq");
-var sum = require("./sum.js");
-var utils = require("./utils.js");
+var sum = require("jsverify/sum.js");
+var utils = require("jsverify/utils.js");
 
 /**
   ### Shrink functions
@@ -2575,13 +2576,13 @@ module.exports = {
   bless: shrinkBless,
 };
 
-},{"./either.js":8,"./sum.js":26,"./utils.js":28,"assert":29,"lazy-seq":30}],23:[function(require,module,exports){
+},{"jsverify/either.js":8,"jsverify/sum.js":26,"jsverify/utils.js":28,"assert":29,"lazy-seq":30}],23:[function(require,module,exports){
 "use strict";
 
-var generator = require("./generator.js");
-var arbitraryBless = require("./arbitraryBless.js");
-var arbitraryAssert = require("./arbitraryAssert.js");
-var utils = require("./utils.js");
+var generator = require("jsverify/generator.js");
+var arbitraryBless = require("jsverify/arbitraryBless.js");
+var arbitraryAssert = require("jsverify/arbitraryAssert.js");
+var utils = require("jsverify/utils.js");
 
 /**
   ### Small arbitraries
@@ -2634,12 +2635,12 @@ module.exports = {
   arbitrary: smallArbitrary,
 };
 
-},{"./arbitraryAssert.js":3,"./arbitraryBless.js":4,"./generator.js":13,"./utils.js":28}],24:[function(require,module,exports){
+},{"jsverify/arbitraryAssert.js":3,"jsverify/arbitraryBless.js":4,"jsverify/generator.js":13,"jsverify/utils.js":28}],24:[function(require,module,exports){
 "use strict";
 
-var array = require("./array.js");
-var primitive = require("./primitive.js");
-var utils = require("./utils.js");
+var array = require("jsverify/array.js");
+var primitive = require("jsverify/primitive.js");
+var utils = require("jsverify/utils.js");
 
 /**
   ### Arbitrary strings
@@ -2692,16 +2693,16 @@ module.exports = {
   asciinestring: asciinestring,
 };
 
-},{"./array.js":5,"./primitive.js":17,"./utils.js":28}],25:[function(require,module,exports){
+},{"jsverify/array.js":5,"jsverify/primitive.js":17,"jsverify/utils.js":28}],25:[function(require,module,exports){
 /* @flow weak */
 "use strict";
 
-var environment = require("./environment.js");
-var typify = require("./typify.js");
-var utils = require("./utils.js");
-var generator = require("./generator.js");
-var shrink = require("./shrink.js");
-var arbitraryBless = require("./arbitraryBless.js");
+var environment = require("jsverify/environment.js");
+var typify = require("jsverify/typify.js");
+var utils = require("jsverify/utils.js");
+var generator = require("jsverify/generator.js");
+var shrink = require("jsverify/shrink.js");
+var arbitraryBless = require("jsverify/arbitraryBless.js");
 
 /**
   ### Restricting arbitraries
@@ -2749,7 +2750,7 @@ module.exports = {
   suchthat: suchthat,
 };
 
-},{"./arbitraryBless.js":4,"./environment.js":9,"./generator.js":13,"./shrink.js":22,"./typify.js":27,"./utils.js":28}],26:[function(require,module,exports){
+},{"jsverify/arbitraryBless.js":4,"jsverify/environment.js":9,"jsverify/generator.js":13,"jsverify/shrink.js":22,"jsverify/typify.js":27,"jsverify/utils.js":28}],26:[function(require,module,exports){
 "use strict";
 
 var assert = require("assert");
@@ -2811,13 +2812,13 @@ module.exports = {
   - *EXPERIMENTAL: recursive types*: `"rec list -> unit | (nat & list)"`.
 */
 
-var arbitrary = require("./arbitrary.js");
+var arbitrary = require("jsverify/arbitrary.js");
 var assert = require("assert");
-var record = require("./record.js");
-var array = require("./array.js");
-var fn = require("./fn.js");
+var record = require("jsverify/record.js");
+var array = require("jsverify/array.js");
+var fn = require("jsverify/fn.js");
 var typifyParser = require("typify-parser");
-var utils = require("./utils.js");
+var utils = require("jsverify/utils.js");
 
 // Forward declarations
 var compileType;
@@ -2927,7 +2928,7 @@ module.exports = {
   parseTypify: parseTypify,
 };
 
-},{"./arbitrary.js":2,"./array.js":5,"./fn.js":11,"./record.js":19,"./utils.js":28,"assert":29,"typify-parser":33}],28:[function(require,module,exports){
+},{"jsverify/arbitrary.js":2,"jsverify/array.js":5,"jsverify/fn.js":11,"jsverify/record.js":19,"jsverify/utils.js":28,"assert":29,"typify-parser":33}],28:[function(require,module,exports){
 /* @flow weak */
 "use strict";
 
@@ -5521,7 +5522,7 @@ function isPrimitive(arg) {
 }
 exports.isPrimitive = isPrimitive;
 
-exports.isBuffer = require('./support/isBuffer');
+exports.isBuffer = require('jsverify/support/isBuffer');
 
 function objectToString(o) {
   return Object.prototype.toString.call(o);
@@ -5583,5 +5584,7 @@ function hasOwnProperty(obj, prop) {
   return Object.prototype.hasOwnProperty.call(obj, prop);
 }
 
-},{"./support/isBuffer":35,"inherits":34}]},{},[15])(15)
+},{"jsverify/support/isBuffer":35,"inherits":34}]},{},[15])(15)
 });
+
+return module.exports;});

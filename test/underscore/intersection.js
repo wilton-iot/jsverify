@@ -1,8 +1,9 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 /* jshint node:true */
 /* global describe, it */
 "use strict";
 
-var jsc = require("../../lib/jsverify.js");
+var jsc = require("jsverify/../lib/jsverify.js");
 
 function intersectionTests(lib) {
   var _ = require(lib);
@@ -32,3 +33,5 @@ function intersectionTests(lib) {
 
 intersectionTests("underscore");
 intersectionTests("lodash");
+
+return module.exports;});

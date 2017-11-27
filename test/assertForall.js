@@ -1,9 +1,12 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 /* jshint node:true */
 /* global describe, it */
 "use strict";
 
-var jsc = require("../lib/jsverify.js");
+var jsc = require("jsverify/lib/jsverify.js");
 var assert = require("assert");
+var describe = require("tape-compat").describe;
+var it = require("tape-compat").it;
 
 describe("assertForall function", function () {
 
@@ -28,3 +31,5 @@ describe("assertForall function", function () {
     assert(!(/foo/.test(err)));
   });
 });
+
+return module.exports;});

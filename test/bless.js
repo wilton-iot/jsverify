@@ -1,9 +1,13 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 /* jshint node:true */
 /* global describe */
 "use strict";
 
-var jsc = require("../lib/jsverify.js");
-var _ = require("underscore");
+var jsc = require("jsverify/lib/jsverify.js");
+var _ = require("lodash");
+var describe = require("tape-compat").describe;
+var it = require("tape-compat").it;
+_.contains = _.includes;
 
 describe("jsc.bless", function () {
   var arbA = jsc.bless({
@@ -45,3 +49,5 @@ describe("jsc.bless", function () {
     return arbC.show([]) === "[]";
   });
 });
+
+return module.exports;});

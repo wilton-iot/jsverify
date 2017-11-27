@@ -1,8 +1,9 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 /* jshint node:true */
 /* global describe */
 "use strict";
 
-var jsc = require("../lib/jsverify.js");
+var jsc = require("jsverify/lib/jsverify.js");
 
 function promiseSpec(library, delay) {
   var promise = require(library);
@@ -28,3 +29,5 @@ function promiseSpec(library, delay) {
 promiseSpec("q", function (q) { return q.delay(1); });
 promiseSpec("when", function (when) { return when.resolve().delay(1); });
 promiseSpec("bluebird", function (Bluebird) { return Bluebird.resolve().delay(1); });
+
+return module.exports;});

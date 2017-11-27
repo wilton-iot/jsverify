@@ -1,3 +1,4 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 /* eslint strict:[2,"function"] */
 module.exports = function (config) {
   "use strict";
@@ -20,3 +21,5 @@ module.exports = function (config) {
     singleRun: true,
   });
 };
+
+return module.exports;});

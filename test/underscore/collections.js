@@ -1,8 +1,9 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 /* jshint node:true */
 /* global describe, it */
 "use strict";
 
-var jsc = require("../../lib/jsverify.js");
+var jsc = require("jsverify/../lib/jsverify.js");
 
 function append(l1, l2) {
   return l1.concat(l2);
@@ -93,3 +94,5 @@ function collectionsTest(lib) {
 
 collectionsTest("underscore");
 collectionsTest("lodash");
+
+return module.exports;});

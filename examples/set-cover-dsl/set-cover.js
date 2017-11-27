@@ -1,3 +1,4 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 /**
   # Minimum set cover
 
@@ -12,7 +13,7 @@
 "use strict";
 
 var _ = require("lodash");
-var jsc = require("../../lib/jsverify.js");
+var jsc = require("jsverify/../lib/jsverify.js");
 
 /**
   We will want to see *jsverify* output.
@@ -255,3 +256,5 @@ jsc.check(jsc.forall("array (array nat)", "nat", function (ls, split) { return o
   So there is still room to improve. One can define a `evenbetter` solver!
   Yet, the problem is proven to be **NP-complete**, so don't try to much.
 */
+
+return module.exports;});

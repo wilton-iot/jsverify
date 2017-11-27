@@ -1,9 +1,12 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 /* jshint node:true */
 /* global describe, it */
 "use strict";
 
-var jsc = require("../lib/jsverify.js");
-var arbitraryAssert = require("../lib/arbitraryAssert.js");
+var jsc = require("jsverify/lib/jsverify.js");
+var arbitraryAssert = require("jsverify/lib/arbitraryAssert.js");
+var describe = require("tape-compat").describe;
+var it = require("tape-compat").it;
 
 describe("suchthat", function () {
   var arb = jsc.suchthat(jsc.integer, function (v) {
@@ -29,3 +32,5 @@ describe("suchthat", function () {
     }));
   });
 });
+
+return module.exports;});

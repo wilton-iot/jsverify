@@ -1,9 +1,12 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 /* jshint node:true */
 /* global describe, it */
 "use strict";
 
-var jsc = require("../lib/jsverify.js");
+var jsc = require("jsverify/lib/jsverify.js");
 var assert = require("assert");
+var describe = require("tape-compat").describe;
+var it = require("tape-compat").it;
 
 describe("state", function () {
   it("error has state value", function () {
@@ -25,3 +28,5 @@ describe("state", function () {
     assert(r2.tests === 1, "should fail after first test");
   });
 });
+
+return module.exports;});

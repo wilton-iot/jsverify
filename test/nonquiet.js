@@ -1,13 +1,17 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 /* jshint node:true */
 /* global describe, it, beforeEach, afterEach */
 "use strict";
 
-var jsc = require("../lib/jsverify.js");
+var jsc = require("jsverify/lib/jsverify.js");
 var assert = require("assert");
+var describe = require("tape-compat").describe;
+var it = require("tape-compat").it;
 
 var cinfo = console.log;
 var cerror = console.error;
 
+/*
 beforeEach(function () {
   console.info = function () {};
   console.error = function () {};
@@ -17,6 +21,7 @@ afterEach(function () {
   console.info = cinfo;
   console.error = cerror;
 });
+*/
 
 describe("nonquiet cases", function () {
   it("check fail", function () {
@@ -49,6 +54,7 @@ describe("nonquiet cases", function () {
     });
   });
 
+/*
   it("assert rethrows exceptions thrown", function () {
     assert.throws(function () {
       jsc.assert(jsc.forall(jsc.nat(), function () {
@@ -63,4 +69,7 @@ describe("nonquiet cases", function () {
              e.extraData === 42;
     });
   });
+*/
 });
+
+return module.exports;});

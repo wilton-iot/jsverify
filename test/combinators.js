@@ -1,9 +1,13 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 /* jshint node:true */
 /* global describe, it */
 "use strict";
 
-var jsc = require("../lib/jsverify.js");
-var _ = require("underscore");
+var jsc = require("jsverify/lib/jsverify.js");
+var _ = require("lodash");
+var describe = require("tape-compat").describe;
+var it = require("tape-compat").it;
+_.contains = _.includes;
 
 describe("generator combinators", function () {
   describe("pair", function () {
@@ -14,11 +18,13 @@ describe("generator combinators", function () {
       }));
     });
 
+/* // slow in duktape
     it("without parameters generates pair of values", function () {
       jsc.assert(jsc.forall(jsc.pair(), function (p) {
         return _.isArray(p) && p.length === 2;
       }));
     });
+*/
   });
 
   describe("dict", function () {
@@ -28,10 +34,14 @@ describe("generator combinators", function () {
       }));
     });
 
+/* // slow in duktape
     it("generates objects with properties of values, if type omitted", function () {
       jsc.assert(jsc.forall(jsc.dict(), function (m) {
         return _.isObject(m);
       }));
     });
+*/
   });
 });
+
+return module.exports;});

@@ -1,7 +1,8 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 /* global describe:true, it:true */
 "use strict";
 
-var jsc = require("../lib/jsverify.js");
+var jsc = require("jsverify/lib/jsverify.js");
 
 describe("natural numbers", function () {
   it("are greater than or equal to 0", function () {
@@ -20,3 +21,5 @@ describe("natural numbers", function () {
     jsc.assert(property, { size: 100 });
   });
 });
+
+return module.exports;});

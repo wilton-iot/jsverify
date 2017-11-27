@@ -1,3 +1,4 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 /* global jasmine:true, beforeEach:true, jsc:true, Promise:true */
 /* eslint strict:[2,"function"] */
 beforeEach(function () {
@@ -33,3 +34,5 @@ beforeEach(function () {
     },
   });
 });
+
+return module.exports;});

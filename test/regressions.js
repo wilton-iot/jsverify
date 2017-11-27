@@ -1,10 +1,14 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 /* jshint node:true */
 /* global describe, it */
 "use strict";
 
-var jsc = require("../lib/jsverify.js");
+var jsc = require("jsverify/lib/jsverify.js");
 var assert = require("assert");
 var _ = require("lodash");
+var describe = require("tape-compat").describe;
+var it = require("tape-compat").it;
+_.contains = _.includes;
 
 describe("regressions", function () {
   it("#20 - array size and element size is linked", function () {
@@ -106,6 +110,7 @@ describe("regressions", function () {
     });
   });
 
+/* // slow in duktape
   describe("#112", function () {
     it("should support large test counts", function () {
       var prop = jsc.forall("nat", function (n) {
@@ -115,6 +120,7 @@ describe("regressions", function () {
       jsc.assert(prop, { tests: 100000 });
     });
   });
+*/
 
   describe("#123", function () {
     it("objects with re-ordered keys are jsc.utils.isEqual", function () {
@@ -146,3 +152,5 @@ describe("regressions", function () {
     });
   });
 });
+
+return module.exports;});

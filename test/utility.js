@@ -1,10 +1,14 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 /* jshint node:true */
 /* global describe, it */
 "use strict";
 
-var jsc = require("../lib/jsverify.js");
-var _ = require("underscore");
+var jsc = require("jsverify/lib/jsverify.js");
+var _ = require("lodash");
 var assert = require("assert");
+var describe = require("tape-compat").describe;
+var it = require("tape-compat").it;
+_.contains = _.includes;
 
 describe("utility functions: _", function () {
   describe("isEqual", function () {
@@ -14,6 +18,7 @@ describe("utility functions: _", function () {
       }));
     });
 
+/* // slow in duktape
     it("returns same as _.isEqual", function () {
       function predicate(x, y) {
         return _.isEqual(x, y) === jsc.utils.isEqual(x, y);
@@ -26,6 +31,7 @@ describe("utility functions: _", function () {
       assert(predicate({ a: 2, b: 2 }, { a: 1, b: 3 }));
       assert(predicate({ a: 1 }, { b: 1 }));
     });
+*/
 
     it("is reflexive", function () {
       jsc.assert(jsc.forall(jsc.json, function (x) {
@@ -46,6 +52,7 @@ describe("utility functions: _", function () {
       assert.strictEqual(m.get([0]), 2);
     });
 
+/* // slow in duktape
     it("works as object for integer keys", function () {
       var prop = jsc.forall(jsc.array(jsc.pair(jsc.integer())), function (l) {
         var m = new jsc._.FMap();
@@ -63,5 +70,8 @@ describe("utility functions: _", function () {
 
       jsc.assert(prop);
     });
+*/
   });
 });
+
+return module.exports;});

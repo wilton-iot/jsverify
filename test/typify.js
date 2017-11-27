@@ -1,10 +1,14 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 /* jshint node:true */
 /* global describe, it */
 "use strict";
 
-var jsc = require("../lib/jsverify.js");
-var _ = require("underscore");
+var jsc = require("jsverify/lib/jsverify.js");
+var _ = require("lodash");
 var assert = require("assert");
+var describe = require("tape-compat").describe;
+var it = require("tape-compat").it;
+_.contains = _.includes;
 
 describe("Math.abs", function () {
   jsc.property("result is non-negative", "integer 100", function (x) {
@@ -86,3 +90,5 @@ describe("typify", function () {
     });
   });
 });
+
+return module.exports;});
