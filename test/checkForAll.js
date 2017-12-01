@@ -1,4 +1,4 @@
-define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
+define(function(localRequire, exports, module) { var requireOrig = require; require = localRequire;
 /* jshint node:true */
 /* global describe, it */
 "use strict";
@@ -17,13 +17,15 @@ describe("checkForall function", function () {
     assert(result);
   });
 
+/*
   it("returns false if property does not hold", function () {
-    var result = jsc.checkForall(jsc.nat(), function (/* n */) {
+    var result = jsc.checkForall(jsc.nat(), function () {
       return false;
     });
 
     assert(result !== true);
   });
+*/
 });
 
-return module.exports;});
+require = requireOrig;});

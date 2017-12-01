@@ -1,4 +1,4 @@
-define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
+define(function(localRequire, exports, module) { var requireOrig = require; require = localRequire;
 /* jshint node:true */
 /* global describe, it */
 "use strict";
@@ -8,7 +8,7 @@ var describe = require("tape-compat").describe;
 var it = require("tape-compat").it;
 
 function promiseSpec(library, delay) {
-  var promise = require(library);
+  var promise = require("bluebird");
 
   describe("promise: " + library, function () {
     it("check", function (done) {
@@ -69,4 +69,4 @@ function promiseSpec(library, delay) {
 //promiseSpec("when", function (when) { return when.resolve().delay(1); });
 promiseSpec("bluebird", function (Bluebird) { return Bluebird.resolve().delay(1); });
 
-return module.exports;});
+require = requireOrig;});

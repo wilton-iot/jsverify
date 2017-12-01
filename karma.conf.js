@@ -1,4 +1,4 @@
-define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
+define(function(localRequire, exports, module) { var requireOrig = require; require = localRequire;
 /* eslint strict:[2,"function"] */
 module.exports = function (config) {
   "use strict";
@@ -22,4 +22,4 @@ module.exports = function (config) {
   });
 };
 
-return module.exports;});
+require = requireOrig;});

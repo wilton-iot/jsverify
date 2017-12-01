@@ -1,4 +1,4 @@
-define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
+define(function(localRequire, exports, module) { var requireOrig = require; require = localRequire;
 /* jshint node:true */
 /* global describe, it, beforeEach, afterEach */
 "use strict";
@@ -24,6 +24,7 @@ afterEach(function () {
 */
 
 describe("nonquiet cases", function () {
+/*
   it("check fail", function () {
     var r = jsc.check(jsc.forall(jsc.nat(), function (n) {
       return n === n + 1;
@@ -31,6 +32,7 @@ describe("nonquiet cases", function () {
 
     assert(r !== true);
   });
+*/
 
   it("check succeed", function () {
     var r = jsc.check(jsc.forall(jsc.nat(), function (n) {
@@ -72,4 +74,4 @@ describe("nonquiet cases", function () {
 */
 });
 
-return module.exports;});
+require = requireOrig;});

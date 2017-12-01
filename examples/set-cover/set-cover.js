@@ -1,4 +1,4 @@
-define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
+define(function(localRequire, exports, module) { var requireOrig = require; require = localRequire;
 /**
   # Minimum set cover
 
@@ -249,4 +249,4 @@ jsc.check(jsc.forall(array2Nat, jsc.nat(), function (ls, split) { return optimal
   Yet, the problem is proven to be **NP-complete**, so don't try to much.
 */
 
-return module.exports;});
+require = requireOrig;});
