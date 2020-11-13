@@ -87,6 +87,7 @@
       "karma.conf.js",
       "karma.jasmine.conf.js",
       "npm-freeze-manifest.json",
+      "test.js",
       "related-work.md",
       "runAllTests.js",
       "tsconfig.json",
